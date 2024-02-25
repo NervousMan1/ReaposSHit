@@ -23,6 +23,7 @@ public class GrapplingRope : MonoBehaviour
     [HideInInspector] public bool IsGrappling = true;
 
     private bool _strightLine = true;
+    public bool _timerOn = true;
 
     private void OnEnable()
     {
@@ -74,6 +75,7 @@ public class GrapplingRope : MonoBehaviour
             if(!IsGrappling)
             {
                 GrapplingGun.Grapple();
+                _timerOn = true;
                 IsGrappling = true;
             }
             if(_waveSize > 0)
