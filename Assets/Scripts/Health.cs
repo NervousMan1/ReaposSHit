@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 {
     [SerializeField] protected float maxHealth;
-    [SerializeField] protected float health;
+    [SerializeField] public float health { get; private set; }
     [SerializeField] private GameObject blood;
+
 
     private Animator _anim;
     public bool CanGetHit { get; private set; }
@@ -56,7 +57,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    private void Kill() // вызывается в анимации
+    private void Kill() // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     {
         TreasuresDrop td = gameObject.GetComponent<TreasuresDrop>();
         SpawnBlood();

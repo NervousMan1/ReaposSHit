@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
     }
 
 
-    public void Attack() // вызывается в анимации
+    public void Attack() // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(_attackPos.position, _attackRange, _enemy);
         for (int i = 0; i < enemies.Length; i++)

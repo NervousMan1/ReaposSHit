@@ -386,7 +386,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  health: 0
   blood: {fileID: 9171740589920314364, guid: 797a1dbb985cec94ba9442ab68e472f3, type: 3}
 --- !u!114 &38638369
 MonoBehaviour:
@@ -2263,7 +2262,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
-  health: 0
   blood: {fileID: 9171740589920314364, guid: 797a1dbb985cec94ba9442ab68e472f3, type: 3}
 --- !u!114 &663277181
 MonoBehaviour:
@@ -92376,7 +92374,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
-  health: 0
   blood: {fileID: 9171740589920314364, guid: 797a1dbb985cec94ba9442ab68e472f3, type: 3}
 --- !u!114 &1948895220
 MonoBehaviour:
