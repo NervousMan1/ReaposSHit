@@ -9,18 +9,14 @@ public class TreasureManager : MonoBehaviour
     [SerializeField] private int coinCount = 0;
     [SerializeField] private TMP_Text coinText;
 
-    private void Update()
-    {
-        coinText.text = coinCount.ToString();
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        int treasureValue = other.gameObject.GetComponent<Coin>().CoinCount();
-        Animator treasureAnim = other.gameObject.GetComponent<Animator>();
-
         if (other.gameObject.CompareTag("Coin"))
         {
+            int treasureValue = other.gameObject.GetComponent<Coin>().CoinCount();
+            Animator treasureAnim = other.gameObject.GetComponent<Animator>();
+            coinText.text = coinCount.ToString();
             treasureAnim.SetTrigger("TreasureTacken");
             coinCount += treasureValue;
         }

@@ -54,7 +54,7 @@ public class GrapplingGun : MonoBehaviour
     [SerializeField] private Image _hookCooldownFill;
 
     private float _timeLeft = 0;
-    private bool _timerOn = true;
+
     private bool _canThrowHook = true;
 
     private void Start()
@@ -72,7 +72,7 @@ public class GrapplingGun : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && _canThrowHook)
         {
             SetGrapplePoint();
-            _timerOn = true;
+            
         }
         else if (Input.GetKey(KeyCode.E))
         {
@@ -189,7 +189,7 @@ public class GrapplingGun : MonoBehaviour
 
     private void Timer()
     {
-        if (_timerOn)
+        if (GrappleRope._timerOn)
         {
             if (_timeLeft < time)
             {
@@ -200,7 +200,7 @@ public class GrapplingGun : MonoBehaviour
             else if (_timeLeft >= time)
             {
                 _canThrowHook = true;
-                _timerOn = false;
+                GrappleRope._timerOn = false;
                 _timeLeft = 0;
             }
         }
