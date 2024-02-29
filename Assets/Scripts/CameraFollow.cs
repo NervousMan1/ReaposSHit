@@ -21,7 +21,7 @@ public class CameraFollow : MonoBehaviour
         {
             if(colliderPoint.gameObject.GetComponent<PolygonCollider2D>().OverlapPoint(player.gameObject.transform.position))
             {
-                virtualCamera.GetComponent<CinemachineVirtualCamera>().Follow = colliderPoint.transform;
+                virtualCamera.GetComponent<CinemachineVirtualCamera>().Follow = colliderPoint.GetComponent<GetTransform>().m_Transform;
                 virtualCamera.GetComponent<CinemachineConfiner>().m_BoundingShape2D = colliderPoint.GetComponent<PolygonCollider2D>();               
             }
         }
