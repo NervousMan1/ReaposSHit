@@ -14,16 +14,20 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerController controller;
     [SerializeField] private float runSpeed = 40f;
 
-    float horizontalMove = 0f;
+    [SerializeField] private float timeBetweenAttack;
+    private float timeCount;
+
+    private float horizontalMove = 0f;
+    private bool canChangeDirection = true;
 
     private void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        if (Input.GetAxisRaw("Horizontal") > 0)
+        if (Input.GetAxisRaw("Horizontal") > 0 && canChangeDirection)
         {
             gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
         }
-        else if (Input.GetAxisRaw("Horizontal") < 0)
+        else if (Input.GetAxisRaw("Horizontal") < 0 && canChangeDirection)
         {
             gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
@@ -37,9 +41,14 @@ public class Player : MonoBehaviour
             _anim.SetBool("isRunning", false);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && timeCount <= 0)
         {
             _anim.SetTrigger("Attack");
+            timeCount = timeBetweenAttack;
+        }
+        else
+        {
+            timeCount -= Time.deltaTime;
         }
     }
 
