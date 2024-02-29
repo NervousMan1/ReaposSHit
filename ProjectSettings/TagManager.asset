@@ -8,6 +8,7 @@ TagManager:
   - Coin
   - Box
   - Chest
+  - Barrel
   layers:
   - Default
   - TransparentFX

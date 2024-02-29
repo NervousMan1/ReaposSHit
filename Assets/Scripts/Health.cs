@@ -28,10 +28,12 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        Debug.Log($"{gameObject.name} take {damage} dmg");
         CanGetHit = true;
         health -= damage;
         SpawnBlood();
-        _anim.SetTrigger("Hit");
+        if(_anim != null)
+            _anim.SetTrigger("Hit");
         CanGetHit = false;
 
         if (health <= 0)
@@ -51,13 +53,13 @@ public class Health : MonoBehaviour
 
     private void SpawnBlood()
     {
-        if (!gameObject.CompareTag("Chest") && !gameObject.CompareTag("Box"))
+        if (gameObject.CompareTag("Enemy") || gameObject.CompareTag("Player"))
         {
             Instantiate(blood, gameObject.transform.position, Quaternion.identity);
         }
     }
 
-    private void Kill() // ���������� � ��������
+    protected virtual void Kill() // ���������� � ��������
     {
         TreasuresDrop td = gameObject.GetComponent<TreasuresDrop>();
         SpawnBlood();
